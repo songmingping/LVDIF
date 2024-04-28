@@ -9,7 +9,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
-
 namespace ChaosIkaros.LVDIF
 {
 
@@ -284,6 +283,15 @@ namespace ChaosIkaros.LVDIF
         {
             initButton.gameObject.SetActive(true);
             resetButton.gameObject.SetActive(false);
+            GameObject controlMenu = GameObject.Find("Control Menu");
+            if (controlMenu != null)
+            {
+                UIManager uiManager = controlMenu.GetComponent<UIManager>();
+                if (uiManager != null)
+                {
+                    uiManager.restartBuild();
+                }
+            }
             for (int i = 0; i < chunks.Count; i++)
             {
                 CudaBridge.FreeMemoryForMC(i);
@@ -309,7 +317,7 @@ namespace ChaosIkaros.LVDIF
             meshChunkUpdateStates.Clear();
             meshChunkTriCounters.Clear();
             initButton.gameObject.SetActive(false);
-            resetButton.gameObject.SetActive(true);
+            //resetButton.gameObject.SetActive(true);
             ClampInputParameters();
             voxelSize = (int)gridSize.x;
             if (voxelSize > 512)
@@ -427,6 +435,7 @@ namespace ChaosIkaros.LVDIF
         {
             int counter = 0;
             float timeAll = 0;
+            bool hasRun = false;
             while (true)
             {
                 if (!stop)
@@ -441,6 +450,20 @@ namespace ChaosIkaros.LVDIF
                         chunks[i].GetComponent<CudaMarchingCubesChunk>().nextFrame = true;
                     yield return new WaitUntil(() => chunkUpdateCounter == chunkNum);
                     chunkUpdateCounter = 0;
+                    if (!hasRun)
+                    {
+                        hasRun = true;
+                        resetButton.gameObject.SetActive(true);
+                        GameObject controlMenu = GameObject.Find("Control Menu");
+                        if (controlMenu != null)
+                        {
+                            UIManager uiManager = controlMenu.GetComponent<UIManager>();
+                            if (uiManager != null)
+                            {
+                                uiManager.finishBuild();
+                            }
+                        }
+                    }
                     //if (enableTimer)
                     //{
                     //    timerAll.Stop();

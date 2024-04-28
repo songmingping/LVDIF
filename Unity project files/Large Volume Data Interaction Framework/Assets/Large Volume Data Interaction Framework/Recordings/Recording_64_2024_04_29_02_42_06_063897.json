@@ -1,0 +1,80 @@
+{
+    "InputFrameDatas": [
+        {
+            "TimeStamp": "2024_04_29-02:41:59.802639",
+            "FrameID": 0,
+            "InputMethod": 0,
+            "BrushShape": 0,
+            "InputRadius": 2,
+            "EraserMode": false,
+            "ColorType": 0,
+            "StartTime": "2024_04_29-02:41:59.802639",
+            "EndTime": "2024_04_29-02:41:59.802639",
+            "CursorPositions": [
+                {
+                    "x": 16.31377601623535,
+                    "y": 34.01533126831055,
+                    "z": 30.587427139282228,
+                    "w": 2.0
+                }
+            ]
+        },
+        {
+            "TimeStamp": "2024_04_29-02:42:00.939451",
+            "FrameID": 1,
+            "InputMethod": 0,
+            "BrushShape": 0,
+            "InputRadius": 2,
+            "EraserMode": false,
+            "ColorType": 0,
+            "StartTime": "2024_04_29-02:42:00.939451",
+            "EndTime": "2024_04_29-02:42:00.939451",
+            "CursorPositions": [
+                {
+                    "x": 29.56532096862793,
+                    "y": 33.742591857910159,
+                    "z": 30.989919662475587,
+                    "w": 2.0
+                }
+            ]
+        },
+        {
+            "TimeStamp": "2024_04_29-02:42:02.183194",
+            "FrameID": 2,
+            "InputMethod": 0,
+            "BrushShape": 0,
+            "InputRadius": 2,
+            "EraserMode": false,
+            "ColorType": 0,
+            "StartTime": "2024_04_29-02:42:02.183194",
+            "EndTime": "2024_04_29-02:42:02.183194",
+            "CursorPositions": [
+                {
+                    "x": 36.52299499511719,
+                    "y": 22.12899398803711,
+                    "z": 32.75472640991211,
+                    "w": 2.0
+                }
+            ]
+        },
+        {
+            "TimeStamp": "2024_04_29-02:42:04.817168",
+            "FrameID": 3,
+            "InputMethod": 0,
+            "BrushShape": 0,
+            "InputRadius": 2,
+            "EraserMode": false,
+            "ColorType": 0,
+            "StartTime": "2024_04_29-02:42:04.817168",
+            "EndTime": "2024_04_29-02:42:04.817168",
+            "CursorPositions": [
+                {
+                    "x": 48.67253112792969,
+                    "y": 26.41155242919922,
+                    "z": 34.32716751098633,
+                    "w": 2.0
+                }
+            ]
+        }
+    ]
+}

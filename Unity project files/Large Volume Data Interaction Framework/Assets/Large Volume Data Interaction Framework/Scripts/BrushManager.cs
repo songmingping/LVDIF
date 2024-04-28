@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using NONE.LVDIF;
 
 namespace ChaosIkaros.LVDIF
 {
@@ -258,13 +259,13 @@ namespace ChaosIkaros.LVDIF
                     cursor.GetComponent<TrailRenderer>().enabled = false;
                     if (cursorPosInBrush.Count != 0 && cursorPosInBrush.Count % realTimeBrushSize == 0)
                     {
-                        if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
-                            brushEndTime = InputRecorder.GetTime();
+                        if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
+                            brushEndTime = InputRecorderJSON.GetTime();
                         brushState = BrushState.Start;
                         if (!currentChunk.hasInput && SetMultipleBrush() != 0)
                         {
-                            if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
-                                InputRecorder.holder.RecordOneFrame();
+                            if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
+                                InputRecorderJSON.holder.RecordOneFrame();
                             currentChunk.hasInput = true;
                             CudaMarchingCubesChunks.cudaMCManager.stop = false;
                         }
@@ -295,10 +296,10 @@ namespace ChaosIkaros.LVDIF
             }
             if (inputMethod == InputMethod.SingleBrush)
             {
-                if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
+                if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
                 {
-                    brushStartTime = InputRecorder.GetTime();
-                    brushEndTime = InputRecorder.GetTime();
+                    brushStartTime = InputRecorderJSON.GetTime();
+                    brushEndTime = InputRecorderJSON.GetTime();
                 }
                 cursor.GetComponent<TrailRenderer>().enabled = false;
                 Ray ray = brushCamera.ScreenPointToRay(Input.mousePosition);
@@ -328,8 +329,8 @@ namespace ChaosIkaros.LVDIF
                             finalCursorPosInBrush.Add(temp);
                             //cursorVoxelPos.x = CudaMarchingCubesChunks.cudaMCManagerHolder.gridSize.x - cursorVoxelPos.x;
                             //cursorVoxelPos.z = CudaMarchingCubesChunks.cudaMCManagerHolder.gridSize.z - cursorVoxelPos.z;
-                            if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
-                                InputRecorder.holder.RecordOneFrame();
+                            if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
+                                InputRecorderJSON.holder.RecordOneFrame();
                             currentChunk.hasInput = true;
                             CudaMarchingCubesChunks.cudaMCManager.stop = false;
                         }
@@ -396,8 +397,8 @@ namespace ChaosIkaros.LVDIF
                 }
                 if (inputDevice.GetLeftButtonDown() && brushState == BrushState.End)
                 {
-                    if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
-                        brushStartTime = InputRecorder.GetTime();
+                    if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
+                        brushStartTime = InputRecorderJSON.GetTime();
                     inputDevice.AftertLeftButtonDown();
                     if (realTimeBrush)
                         lastInputPosID = 0;
@@ -436,16 +437,16 @@ namespace ChaosIkaros.LVDIF
                         lastInputPosID = 0;
                         cursorPosInBrush.Clear();
                     }
-                    if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
-                        brushEndTime = InputRecorder.GetTime();
+                    if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
+                        brushEndTime = InputRecorderJSON.GetTime();
                     cursor.GetComponent<TrailRenderer>().enabled = false;
                     cursor.GetComponent<TrailRenderer>().Clear();
                     brushState = BrushState.End;
                     SetMultipleBrush();
                     if (SetMultipleBrush() != 0)
                     {
-                        if (InputRecorder.holder != null && InputRecorder.holder.isRecording)
-                            InputRecorder.holder.RecordOneFrame();
+                        if (InputRecorderJSON.holder != null && InputRecorderJSON.holder.isRecording)
+                            InputRecorderJSON.holder.RecordOneFrame();
                         currentChunk.hasInput = true;
                         CudaMarchingCubesChunks.cudaMCManager.stop = false;
                     }

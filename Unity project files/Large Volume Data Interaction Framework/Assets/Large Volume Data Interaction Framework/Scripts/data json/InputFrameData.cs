@@ -39,7 +39,7 @@ namespace NONE.LVDIF
             ColorType = colorType;
             StartTime = startTime;
             EndTime = endTime;
-            CursorPositions = cursorPositions ?? new List<Vector4>();  // 确保不是 null
+            CursorPositions = cursorPositions ?? new List<Vector4>();  
         }
     }
 

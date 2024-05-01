@@ -107,7 +107,7 @@ namespace NONE.LVDIF
             (int)BrushManager.holder.colorType,
             BrushManager.holder.brushStartTime,
             BrushManager.holder.brushEndTime,
-            new List<Vector4>(BrushManager.holder.finalCursorPosInBrush)  // 确保是新的实例
+            new List<Vector4>(BrushManager.holder.finalCursorPosInBrush) 
         );
 
         // 添加到 outputWrapper
